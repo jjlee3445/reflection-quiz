@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reflection Quiz 1</title>
+  
+  <!-- SurveyJS Styles -->
+  <style>
+    /* SurveyJS styles */
+    @import url('https://unpkg.com/survey-core@1.9.107/survey.css');
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    #surveyContainer {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    #surveyResult {
+      max-width: 800px;
+      margin: 40px auto;
+      font-size: 18px;
+      background: #f1f1f1;
+      padding: 20px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Reflection Quiz 1</h1>
+
+  <div id="surveyContainer"></div>
+  <div id="surveyResult"></div>
+
+  <!-- SurveyJS Scripts -->
+  <script src="https://unpkg.com/survey-core@1.9.107/survey.core.min.js"></script>
+  <script src="https://unpkg.com/survey-knockout@1.9.107/survey.ko.min.js"></script>
+
+  <script>
+    // Define the SurveyJS JSON structure
+    var surveyJSON = {
+      title: "Reflection Quiz 1",
+      pages: [
+        {
+          questions: [
+            {
+              type: "rating",
+              name: "q1",
+              title: "I often go out of my way to help others, even if it means sacrificing my own time and resources.",
+              isRequired: true,
+              rateValues: [
+                { value: 1, text: "Strongly Disagree" },
+                { value: 2, text: "Disagree" },
+                { value: 3, text: "Neutral" },
+                { value: 4, text: "Agree" },
+                { value: 5, text: "Strongly Agree" }
+              ]
+            },
+            {
+              type: "rating",
+              name: "q2",
+              title: "I am comfortable with compromising when resolving conflicts and disputes.",
+              isRequired: true,
+              rateValues: [
+                { value: 1, text: "Strongly Disagree" },
+                { value: 2, text: "Disagree" },
+                { value: 3, text: "Neutral" },
+                { value: 4, text: "Agree" },
+                { value: 5, text: "Strongly Agree" }
+              ]
+            },
+            {
+              type: "rating",
+              name: "q3",
+              title: "I have a patient and compassionate approach with students who are struggling.",
+              isRequired: true,
+              rateValues: [
+                { value: 1, text: "Strongly Disagree" },
+                { value: 2, text: "Disagree" },
+                { value: 3, text: "Neutral" },
+                { value: 4, text: "Agree" },
+                { value: 5, text: "Strongly Agree" }
+              ]
+            },
+            {
+              type: "rating",
+              name: "q4",
+              title: "I find it difficult to say no when someone asks me to take on extra work or responsibilities.",
+              isRequired: true,
+              rateValues: [
+                { value: 1, text: "Strongly Disagree" },
+                { value: 2, text: "Disagree" },
+                { value: 3, text: "Neutral" },
+                { value: 4, text: "Agree" },
+                { value: 5, text: "Strongly Agree" }
+              ]
+            },
+            {
+              type: "rating",
+              name: "q5",
+              title: "I am sensitive to the needs and concerns of my colleagues and try to be understanding and empathetic towards them.",
+              isRequired: true,
+              rateValues: [
+                { value: 1, text: "Strongly Disagree" },
+                { value: 2, text: "Disagree" },
+                { value: 3, text: "Neutral" },
+                { value: 4, text: "Agree" },
+                { value: 5, text: "Strongly Agree" }
+              ]
+            },
+            {
+              type: "rating",
+              name: "q6",
+              title: "I prefer to avoid conflicts and disagreements at work.",
+              isRequired: true,
+              rateValues: [
+                { value: 1, text: "Strongly Disagree" },
+                { value: 2, text: "Disagree" },
+                { value: 3, text: "Neutral" },
+                { value: 4, text: "Agree" },
+                { value: 5, text: "Strongly Agree" }
+              ]
+            },
+            {
+              type: "rating",
+              name: "q7",
+              title: "I make sacrifices for the greater good of the school and my students.",
+              isRequired: true,
+              rateValues: [
+                { value: 1, text: "Strongly Disagree" },
+                { value: 2, text: "Disagree" },
+                { value: 3, text: "Neutral" },
+                { value: 4, text: "Agree" },
+                { value: 5, text: "Strongly Agree" }
+              ]
+            },
+            {
+              type: "rating",
+              name: "q8",
+              title: "I believe that it is important to be respectful and considerate of others, even in difficult situations.",
+              isRequired: true,
+              rateValues: [
+                { value: 1, text: "Strongly Disagree" },
+                { value: 2, text: "Disagree" },
+                { value: 3, text: "Neutral" },
+                { value: 4, text: "Agree" },
+                { value: 5, text: "Strongly Agree" }
+              ]
+            },
+            {
+              type: "rating",
+              name: "q9",
+              title: "Students and colleagues see me as an empathetic person.",
+              isRequired: true,
+              rateValues: [
+                { value: 1, text: "Strongly Disagree" },
+                { value: 2, text: "Disagree" },
+                { value: 3, text: "Neutral" },
+                { value: 4, text: "Agree" },
+                { value: 5, text: "Strongly Agree" }
+              ]
+            },
+            {
+              type: "rating",
+              name: "q10",
+              title: "My presence makes students and colleagues feel at ease.",
+              isRequired: true,
+              rateValues: [
+                { value: 1, text: "Strongly Disagree" },
+                { value: 2, text: "Disagree" },
+                { value: 3, text: "Neutral" },
+                { value: 4, text: "Agree" },
+                { value: 5, text: "Strongly Agree" }
+              ]
+            },
+            {
+              type: "rating",
+              name: "q11",
+              title: "I feel genuine concern for students and colleagues.",
+              isRequired: true,
+              rateValues: [
+                { value: 1, text: "Strongly Disagree" },
+                { value: 2, text: "Disagree" },
+                { value: 3, text: "Neutral" },
+                { value: 4, text: "Agree" },
+                { value: 5, text: "Strongly Agree" }
+              ]
+            },
+            {
+              type: "rating",
+              name: "q12",
+              title: "Others would consider me soft-hearted.",
+              isRequired: true,
+              rateValues: [
+                { value: 1, text: "Strongly Disagree" },
+                { value: 2, text: "Disagree" },
+                { value: 3, text: "Neutral" },
+                { value: 4, text: "Agree" },
+                { value: 5, text: "Strongly Agree" }
+              ]
+            },
+            {
+              type: "rating",
+              name: "q13",
+              title: "I tend to put others before myself.",
+              isRequired: true,
+              rateValues: [
+                { value: 1, text: "Strongly Disagree" },
+                { value: 2, text: "Disagree" },
+                { value: 3, text: "Neutral" },
+                { value: 4, text: "Agree" },
+                { value: 5, text: "Strongly Agree" }
+              ]
+            },
+            {
+              type: "rating",
+              name: "q14",
+              title: "I empathize with my student’s and colleague’s situations.",
+              isRequired: true,
+              rateValues: [
+                { value: 1, text: "Strongly Disagree" },
+                { value: 2, text: "Disagree" },
+                { value: 3, text: "Neutral" },
+                { value: 4, text: "Agree" },
+                { value: 5, text: "Strongly Agree" }
+              ]
+            },
+            {
+              type: "rating",
+              name: "q15",
+              title: "I tend to be indirect in dealing with issues with others.",
+              isRequired: true,
+              rateValues: [
+                { value: 1, text: "Strongly Disagree" },
+                { value: 2, text: "Disagree" },
+                { value: 3, text: "Neutral" },
+                { value: 4, text: "Agree" },
+                { value: 5, text: "Strongly Agree" }
+              ]
+            }
+          ]
+        }
+      ]
+    };
+
+    var survey = new Survey.Model(surveyJSON);
+
+    survey.onComplete.add(function(result) {
+      var score = 0;
+      var resultText = "";
+
+      // Calculate total score based on responses
+      for (var i = 0; i < 15; i++) {
+        score += result.data["q" + (i + 1)];
+      }
+
+      // Determine agreeableness level
+      if (score >= 15 && score <= 29) {
+        resultText = "Based on this score, you may have a low level of agreeableness. This means that you may place a high value on independence, critical thinking, and personal goals.";
+      } else if (score >= 30 && score <= 44) {
+        resultText = "Based on this score, you may have a low-medium level of agreeableness. This means that you may place a higher value on independence, critical thinking, and personal goals compared to things like team goals and collaboration.";
+      } else if (score >= 45 && score <= 59) {
+        resultText = "Based on this score, you may have a medium-high level of agreeableness. This means that you may be more likely to be cooperative and a peace-keeper. You may also prefer team-based goals to personal goals.";
+      } else if (score >= 60 && score <= 75) {
+        resultText = "This means that you may be highly agreeable. Individuals who are highly agreeable are highly flexible, thrive in teamwork settings, and advocate for others. They may also have difficulty being assertive, take on too much responsibility, and get taken advantage of.";
+      }
+
+      document.getElementById("surveyResult").innerHTML = "<h2>Your Results:</h2><p>Total Score: " + score + "</p><p>" + resultText + "</p>";
+    });
+
+    // Render survey
+    Survey.SurveyNG.render("surveyContainer", { model: survey });
+  </script>
+</body>
+</html>
